@@ -1,0 +1,5 @@
+@import "tailwindcss";
+input[type="range"] {
+  width: 200px;
+  accent-color: #007bff; /* blue thumb and track (modern browsers) */
+}

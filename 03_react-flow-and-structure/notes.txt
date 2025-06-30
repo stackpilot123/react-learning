@@ -1,0 +1,12 @@
+--> js jab chal rahi hai toh woh sirf js he hai -> html mai usko laana he padega -> by script tag
+
+--> see the "index.html" file in the structure --> this is the main file which is loaded --> ek he page hota hai isliye isko SPA bolte (single page application)
+
+--> website ke ander ek dom hota hai we all know --> react apna khud ka bhi ek dom banata hai jisko "virtual dom" bolte hai--> dom is a tree structure
+--> const root = ReactDOM.createRoot(document.getElementById('root')) // this root is woh index.html wala root 
+--> root.render(
+    <App />
+)
+
+-->  root mai render kardo <App /> , render means jaise normal dom mai render hota hai aur dikhta hai 
+--> App name ka toh koi tag hai he nahi --> yeh he hai jsx ki power --> aap js ke through html ke tags ko render kar sakhte ho 

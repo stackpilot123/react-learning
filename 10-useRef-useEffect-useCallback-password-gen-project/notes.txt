@@ -1,0 +1,49 @@
+-->useCallback: 
+-> useCallback is a React Hook that lets you cache(memory) a function definition between re-renders.
+
+🔁 What is useCallback?
+useCallback is a React hook that helps you remember a function between re-renders so that it's not recreated every time the component updates.
+
+🧠 Why would you want to "remember a function"?
+In React, every time your component re-renders, all functions inside it are recreated. Sometimes, this can cause unnecessary re-renders of child components, especially if you're passing those functions as props.
+
+--> imp**--> use it when 
+->You're passing a function to a memoized child component (React.memo).
+
+You want to avoid unnecessary renders.
+
+
+--> useEffect 
+-> Dependency Array ([ ])	What it means
+[] (empty array)	Run only once when the component mounts (like componentDidMount)
+[a, b]	Run when a or b changes
+(No array)	Run on every render
+
+
+--> useRef 
+-> 🔍 What is useRef?
+useRef is a React hook that gives you a mutable container (called a "ref") which:
+
+Can store any value
+
+Doesn't cause a re-render when it changes
+
+Is often used to reference DOM elements
+
+📦 Syntax:
+const myRef = useRef(initialValue);
+myRef.current is where the value lives. (it desnot causes rerender when the myRef.current changes)
+
+You can read from or write to it: myRef.current = something
+
+
+
+--> useId hook 
+-> useId is a React hook that generates a unique ID that stays the same across re-renders.
+
+You often need unique IDs for:
+
+Accessibility (<label htmlFor="id">)
+
+Associating input and label
+

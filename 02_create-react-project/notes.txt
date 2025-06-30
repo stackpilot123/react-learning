@@ -1,0 +1,4 @@
+
+
+react ----> react-dom --> used for web applications 
+      ---->react-native --> used for phone applications

@@ -1,0 +1,23 @@
+--> ek mast interview question : 
+const [counter, setCounter] = useState(5)
+
+const handleInc = ()=>{
+    setCounter(counter+1);
+    setCounter(counter+1);
+    setCounter(counter+1);
+    setCounter(counter+1);
+
+  }
+
+kya btn click karne pe 9 hojayegi value?
+-> no. ek he baar value +1 hogi which is 6 then 7 ...
+-> why? -> useState ky karta hai ki jitne bhi updates bhejne hai ui mai , unko batches mai bhejta hai  -> woh fibre algo dekhega yeh batch ko ki same he toh kaam hai saare toh isliye ek he baar chaleyega 
+
+--> interviewer-> how to solve this without using setCounter(counter+4)
+-> answer: 
+const handleInc = ()=>{
+    setCounter(prevCounter => prevCounter+1);
+    setCounter(prevCounter => prevCounter+1);
+    setCounter(prevCounter => prevCounter+1);
+    setCounter(prevCounter => prevCounter+1);
+  }

@@ -1,0 +1,37 @@
+--> why to learn react?
+-> makes easy to manage and build complex frontend 
+         compile
+--> React-------> html,css,js 
+-> browser ko toh sirf htm css js he samaj aata hai
+
+--> why react was created ?
+-> no consistency in ui 
+-> state was handled by js -> state maanlo ek variable hai jo change ho sakhta hai jab koi event occur hoga 
+-> ui -> DOM 
+--> so there was no sync between the dom and the state -> react solves this issue
+
+-> choti moti websites mai react use karne ka matlab nahi hai -> 1 btn ke click hone pe 4-5 jagah jab chezze badle toh react use karne ka asli matlab hai
+
+
+--> react is a library .
+-> library vs framework -> in framework flow is defined , for eg-> how you will name the file and all -> library gives us tools to work by myself
+-> angular is a framework -> also single page 
+
+
+TOPICS TO LEARN
+==========================
+-> core of react (state or UI manipulation or JSX)
+-> component reuseblity 
+-> reusing of component(props) -> props means properties just like {key: value}
+-> how to propogate change (hooks)
+
+ADDITIONAL CONCEPTS TO React
+===================================
+-> Router (react donot have router)
+-> State management (react donot hve state management)-> redux, redux toolkit , zustand , context api
+--> class based component --> nahi padhna isko maut aajayegi 
+--> BAAS(backend as a service) apps
+-> social media clone, e-commerce
+
+
+

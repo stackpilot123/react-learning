@@ -1,0 +1,107 @@
+--> aisa kuch hota hai react mai 
+
+-> function customRender(reactElement,container){
+    /*const domElement = document.createElement(reactElement.type);
+    domElement.innerHTML = reactElement.children;
+    domElement.setAttribute('href',reactElement.props.href);
+    domElement.setAttribute('target',reactElement.props.target);
+    container.appendChild(domElement);*/
+
+    const domElement = document.createElement(reactElement.type);
+    domElement.innerHTML = reactElement.children;
+    for (const prop in reactElement.props) {
+        if(prop === "children")  continue;
+        domElement.setAttribute(prop,reactElement.props[prop]);
+    }
+    container.appendChild(domElement);
+};
+
+const reactElement = {
+    type: 'a',
+    props: {
+        href: 'https://google.com',
+        target: '_blank'
+    },
+    children: 'Click me to visit google'
+}
+
+const mainContainer = document.querySelector('#root');
+
+customRender(reactElement,mainContainer);
+
+
+
+--> har react apne aap mai ek bundler use karta hai, bundler(for eg: babel) jo hai  <h1>hello i am learning react</h1> isko isme convert kardeta hai const reactElement = {
+    type: 'a',
+    props: {
+        href: 'https://google.com',
+        target: '_blank'
+    },
+    children: 'Click me to visit google'
+} --> yeh sab behind the scenes hota hai --> vite bhi bundler use karta hai 
+
+
+--> yeh kyu nahi chal raha ?
+-> const reactElement = {
+    type: 'a',
+    props: {
+        href: 'https://google.com',
+        target: '_blank'
+    },
+    children: 'Click me to visit google'
+}
+createRoot(document.getElementById('root')).render(
+   reactElement
+   //<reactElement/> --> yeh toh likh he nahi sakhte kyuki iska matlab toh hai ki funtion call ho rhaa hai jese app ho rha tha --> reactElement() --> but this is a obj , isliye reactElement yeh likha 
+)
+
+--> but this will not work kyuki react jo convert karta hai woh aisa nahi hota , mtlb type, props .. inka naam kuch aur hota hai 
+
+
+
+
+--> why this is working ?
+const anotherElement = (
+  <a href="https://google.com" target='_blank'>click me to open google</a>
+
+)
+createRoot(document.getElementById('root')).render(
+  anotherElement
+)
+
+--> hoga kya ki woh phele isko tree like syntax mai convert karega jaise woh tha type, props... phir render hojayega --> render ka mtlb simply root mai code append he toh karwa rahe hai jese customReact.js mai kiya 
+
+
+
+
+--> this will work bcoz this is according to the syntax of react
+
+const reactElement = React.createElement(
+  'a',
+  {href: 'https://instagram.com',target: '_blank'},
+  'click me to go to insta'
+)
+createRoot(document.getElementById('root')).render(
+  reactElement
+) 
+
+
+
+--> main story:
+-> <a href=".."> </a>  ----> tree like structure { 'a',{href: '..'},'click me'} -----> render (append to root by its own algorithim)
+
+
+-> const username = "aayush roop"
+--> <h2>username: {username}</h2>--> {username} is evealuted expression --> means ider mai final outcome he likh sakhta hu aisa kuch nhi kar sakhta --> {if(..) username } 
+
+--> kyu nahi likh sakhte logic(loop, if else) in this ?
+--> jab aapka saara tree ban jaata hai tab aapke variables inject hote hai , kuch aise 
+->const anotherUser = "aayush roopchandani"
+const reactElement = React.createElement(
+  'a',
+  {href: 'https://instagram.com',target: '_blank'},
+  'click me to go to insta',
+  anotherUser
+)
+
+--> toh aap obj ke ander thori na loop yaa if else likh sakhte ho , kabhi js ke obj ke ander likhe hai kya , isliye evaluted expression he likhne ka 
