@@ -1,0 +1,72 @@
+--> context api
+-> need of context api: 
+-> Prop drilling is a concept in React (or any component-based library) where you pass data from a parent component down to deeply nested child components through multiple layers, even if the intermediate components don’t actually need that data—they just pass it along.
+
+-> for eg:
+function App() {
+  const user = "Aayush";
+  return <Parent user={user} />;
+}
+
+function Parent({ user }) {
+  return <Child user={user} />;
+}
+
+function Child({ user }) {
+  return <GrandChild user={user} />;
+}
+
+function GrandChild({ user }) {
+  return <h1>Hello, {user}</h1>;
+}
+
+❌ Why is it a problem?
+Makes code harder to read and maintain.
+
+If you change the structure of middle components, you have to update all the props passing.
+
+Unnecessary re-renders if intermediate components re-render.
+
+✅ Solution?
+To avoid prop drilling, you can use:
+
+Context API (for sharing data globally)
+
+State management libraries like Redux, Zustand, Recoil, etc.
+
+
+
+--> what is context api?
+-> its a kind of mai global variable bana raha hu and usme data pass karuga aur kahi se bhi phir usko access kar sakhunga
+
+--> code part :
+-> React.createContext() --> this is a method just like we use usestate and all , this creates a context , so we have to store it in a variable 
+--> basic syntax
+import React from "react";
+
+const UserContext = React.createContext();
+
+export default UserContext;
+
+--> every context gives us some "provider" , har ek context ek provider hota hai 
+-> so we will wrap components in UserContext , so that we can use state in the components 
+
+-> UserContextProvider 
+code:
+import React, { useState } from "react";
+import UserContext from "./UserContext";
+
+const UserContextProvider = ({children})=>{
+    const [user, setUser] = useState(null);
+    return(
+        <UserContext.Provider value={{user,setUser}}>
+            {children}
+        </UserContext.Provider>
+    )
+}
+
+export default UserContextProvider;
+
+
+--> useContext hook: 
+-> it is used to access the states from the context

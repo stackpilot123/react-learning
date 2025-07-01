@@ -1,0 +1,27 @@
+--> this is the 2nd syntax of context api 
+->  import { createContext } from "react";
+
+export const ThemeContext = createContext({
+    themeMode : "light",
+    darkTheme: ()=>{},
+    lightTheme: ()=>{}
+})
+-> jab aapka context banega toh jo intial state hai woh aise daal sakhte hai -> aisa 1st syntax mai bhi hosakhta tha 
+
+
+--> code part :
+./contexts/theme.js
+import { createContext, useContext } from "react";
+
+export const ThemeContext = createContext({
+    themeMode : "light",
+    darkTheme: ()=>{},
+    lightTheme: ()=>{}
+})
+
+export const ThemeProvider = ThemeContext.Provider
+
+// custom hook 
+export const useTheme = () => {
+    return useContext(ThemeContext);
+}
